@@ -28,7 +28,7 @@ class Library:
     def get_next_book_id(self) -> int:
         return len(self.books)+1
 
-    def get_index_by_book_id(self, Id):
+    def get_index_by_book_id(self, Id__):
         for a in enumerate(self.books):
             if (Id == a[0]):
                 return a[0]

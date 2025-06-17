@@ -1,9 +1,6 @@
 class Book:
     """ Базовый класс книги. """
 
-    __name = None
-    __author = None
-
     def __init__(self, name: str, author: str):
         self.name = name
         self.author = author
@@ -17,16 +14,15 @@ class Book:
 
 class PaperBook(Book):
     def __init__(self, name: str, author: str, pages: int):
-        if isinstance(pages, str): raise TypeError
         super().__init__(name, author)
         self.pages = pages
-
-    def __str__(self):
-        return (super().__str__() + f", количество страниц {self.pages}")
+    
+    def __repr__(self):
+        return f"{super().__repr__()[:-1]}, pages={self.pages})"
 
 
 class AudioBook(Book):
-    def __init__(self, name: str, author: str, duration: float):
+    def __init__(self, duration: float):
         if isinstance(duration, float): raise TypeError
         super().__init__(name, author)
         self.duration = duration

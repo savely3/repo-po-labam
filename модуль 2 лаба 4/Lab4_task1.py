@@ -1,5 +1,5 @@
 # TODO: описать базовый класс
-class human:
+class Human:
 
     name = None     # Имя (str)
     surname = None  # Фамилия (str)
@@ -18,7 +18,8 @@ class human:
         """
 
         # Если введенное значение имени не является строкой, выдается ошибка типа
-        if not(isinstance(name, str)):   raise TypeError("Имя введено не корректно")
+        if not(isinstance(name, str)):   
+            raise TypeError("Имя введено не корректно")
 
         # Если введенная строка имеет символы, не являющиеся буквами, выдается ошибка значения
         if not (name.isalpha()): raise ValueError("Имя может содержать только буквы")
@@ -84,7 +85,7 @@ class student(human):
 
     number_of_debts = 0
 
-    def __init__(self, surname, name = None, age = None, number_of_debts = 0):
+    def __init__(self, surname, name=None, age=None, number_of_debts=0):
         """
         Создание объекта класса "student":
         :param number_of_debts: Количество долгов у студента (int)
@@ -135,7 +136,11 @@ class student(human):
         Примеры:
         >>> a = student1.__repr__()
         """
-        return super.__repr__() + f", {self.number_of_debts!r}"
+        def __repr__(self):
+    return (f"Student(surname={self.surname!r}, "
+            f"name={self.name!r}, "
+            f"age={self.age!r}, "
+            f"number_of_debts={self.number_of_debts!r})")
 
 
 
@@ -191,6 +196,12 @@ class prepod(human):
 
             Примеры:
             >>> a = prepod1.__repr__()
+            
             """
 
-            return super.__repr__() + f", {number_of_student_expelled!r}"
+            def __repr__(self):
+    return (f"Prepod(surname={self.surname!r}, "
+            f"name={self.name!r}, "
+            f"age={self.age!r}, "
+            f"number_of_students_expelled={self.number_of_students_expelled!r})")
+            

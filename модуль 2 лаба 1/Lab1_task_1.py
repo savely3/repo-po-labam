@@ -5,7 +5,7 @@ import doctest
 
 # TODO: описать класс
 
-class cat:
+class Cat:
 
     def __init__(self, name: str = None, age: int = None, breed: str = None):
         """
@@ -100,3 +100,4 @@ class prepod:
         Функция вывода данных о преподавателе
         """
         print(self.surname, self.number_of_students_expelled)
+        

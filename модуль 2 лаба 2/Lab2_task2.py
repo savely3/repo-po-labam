@@ -28,9 +28,9 @@ class Library:
     def get_next_book_id(self) -> int:
         return len(self.books)+1
 
-    def get_index_by_book_id(self, Id__):
+    def get_index_by_book_id(self, id__):
         for a in enumerate(self.books):
-            if (Id == a[0]):
+            if (id__ == a[0]):
                 return a[0]
         raise ValueError("Книги с запрашиваемым id не существует")
 

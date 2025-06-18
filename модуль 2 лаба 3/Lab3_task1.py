@@ -22,13 +22,12 @@ class PaperBook(Book):
 
 
 class AudioBook(Book):
-    def __init__(self, duration: float):
-        if isinstance(duration, float): raise TypeError
+    def __init__(self, name: str, author: str, duration: float):
         super().__init__(name, author)
         self.duration = duration
-
-    def __str__(self):
-        return (super().__str__() + f", длительность {self.duration}")
+    
+    def __repr__(self):
+        return f"{super().__repr__()[:-1]}, duration={self.duration})"
 
 
 # блоки проверки того, что написал

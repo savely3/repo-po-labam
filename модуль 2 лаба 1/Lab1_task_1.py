@@ -39,7 +39,7 @@ class Cat:
 
 # TODO: описать ещё класс
 
-class student:
+class Student:
     def __init__ (self, surname: str = None, add_sessions: int = 0, is_in_university: bool = False):
         """
         Создание объета класса "student"
@@ -72,7 +72,7 @@ class student:
 
 
 # TODO: и ещё один
-class prepod:
+class Prepod:
     def __init__(self, surname: str = None, umber_of_students_expelled: int = None):
         """
         Создание объекта класса "prepod"

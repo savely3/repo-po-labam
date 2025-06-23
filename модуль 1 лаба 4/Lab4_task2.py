@@ -1,4 +1,3 @@
-# TODO импортировать необходимые молули
 import json
 import csv
 
@@ -6,30 +5,21 @@ INPUT_FILENAME = "input.csv"
 OUTPUT_FILENAME = "output.json"
 
 def task() -> None:
-    ...  # TODO считать содержимое csv файла
-
-    a = open(INPUT_FILENAME, "r")
-    b = open(OUTPUT_FILENAME, "w")
-
-    reader = csv.DictReader(a)
-    c = []
-    for i in reader:
-        c.append(i)
-
-    ...  # TODO Сериализовать в файл с отступами равными 4
-
-    json.dump(c, b, indent = 4)
-    b.close()
-    a.close()
-
+    """Read CSV data and convert to formatted JSON file"""
+    # Read CSV data using context manager
+    with open(INPUT_FILENAME, "r") as csv_file:
+        reader = csv.DictReader(csv_file)
+        data = list(reader)  # Convert reader object to list of dictionaries
+    
+    # Write JSON data using context manager
+    with open(OUTPUT_FILENAME, "w") as json_file:
+        json.dump(data, json_file, indent=4)
 
 if __name__ == '__main__':
-    # Нужно для проверки
     task()
-
+    
+    # Print the result file content
     with open(OUTPUT_FILENAME) as output_f:
         for line in output_f:
             print(line, end="")
-
-
-
+            

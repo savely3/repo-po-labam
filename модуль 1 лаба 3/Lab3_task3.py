@@ -1,37 +1,27 @@
-# TODO  Напишите функцию count_letters
-
 def count_letters(a):
     c = ""
     simb = []
     frecuency = []
-
-#Откидывание из исходного текста все символов, кроме букв
-#Замена заглавных букв на строчные, метод lower не работал в функции
+    
     for i in a:
         if (ord(i) >= ord("А")) and (ord(i) <= ord("я")):
             if ord(i) <= ord("Я"):
                 c += chr(ord(i) + 32)
             else:
                 c += i
-
-#Составление списков символов и их количеств в тексте
+                
     for i in range (0, 32):
         simb.append(chr(i+1072))
         frecuency.append(c.count(chr(i+1072)))
-
-#Подсчет частоты
+        
     for i in range(len(frecuency)):
         frecuency[i] = frecuency[i]/(len(c))
         frecuency[i] = round(frecuency[i], 2)
-
-#Объединение двух массивов в один для удобного хранения данных
+        
     for i in range(32):
         simb[i] = ([simb[i], frecuency[i]])
     return [simb]
-
-# TODO Напишите функцию calculate_frequency
-#Не придумал, как нормально написать через две функции, поэтому объеденил в одну
-
+    
 main_str = """
 У лукоморья дуб зелёный;
 Златая цепь на дубе том:
@@ -68,11 +58,8 @@ main_str = """
 Свои мне сказки говорил.
 """
 
-
-# TODO Распечатайте в столбик букву и её частоту в тексте
-
 a = count_letters(main_str)
-a = a[0]    #Сброс дополнительного измерения массива, образовавшегося после работы функции
+a = a[0]    
 for i in a:
     print(i[0], end = ": ")
     print(i[1])

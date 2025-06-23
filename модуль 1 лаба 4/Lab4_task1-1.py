@@ -1,23 +1,21 @@
-# TODO решите задачу
+import json
 
 def task() -> float:
-    a = 0
-    sch = 0
-    sum_ = 0
-    ch1 = 0
-    ch2 = 0
-    f = open("input.json", "r")
-    a = f.readlines()
-    for i in range(len(a)):
-        if a[i].find("score") != -1:
-            ch1 = float(a[i][((a[i].find("score"))+8):len(a[i])-2])
-        elif (a[i].find("weight")) != -1:
-            ch2 = float(a[i][((a[i].find("weight"))+9):len(a[i])-1])
-        if(ch1 != 0) and (ch2 != 0):
-            sum_ += ch1*ch2
-            ch1, ch2 = 0, 0
-    f.close()
-    return round(sum_, 3)
+    """Calculate the weighted sum from JSON data."""
+    total_sum = 0.0
+    current_score = 0.0
+    current_weight = 0.0
+    
+    with open("input.json", "r") as file:
+        data = json.load(file)
+    
+    for item in data:
+        current_score = item["score"]
+        current_weight = item["weight"]
+        total_sum += current_score * current_weight
+    
+    return round(total_sum, 3)
 
-print(task())
-
+if __name__ == "__main__":
+    print(task())
+    
